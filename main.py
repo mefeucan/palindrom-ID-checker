@@ -1,5 +1,6 @@
 from sys import get_int_max_str_digits
 
+import random
 
 def function1():
     number = input("Please enter an 11-digit number: ")
@@ -43,10 +44,17 @@ def second_check(number):
     else:
         function1()
 
-
-
+#FUNCTİON 2
 def function2():
-    pass
+    nums = []
+    for i in range(5):
+        nums.append(random_numbers())
+    print(nums)
+
+    tc_numbers = []
+    for _ in range(5):
+        tc_numbers.append(random_ID())
+    print("Generated Turkish ID numbers: \n",tc_numbers)
 
 
 
@@ -55,30 +63,31 @@ def function2():
 
 
 
+def random_numbers():
+
+    num= random.randint(10000,99999)
+    mid_num=random.randint(0,9) #
+
+    # print("Generated palindromic numbers: \n", num)
+    return int(str(num) + str(mid_num) + str(num)[::-1])
 
 
+def random_ID():
+    tcid=[random.randint(1,9)] #First digit can't be 0
+    for _ in range(8):
+        tcid.append(random.randint(0,9))
 
+    #odd even calculation
+    odd= sum(tcid[i] for i in range(0, 9, 2))
+    even= sum(tcid[i] for i in range(1, 8, 2))
+    tcid.append(((odd * 7) - even) % 10)
 
+    #third provision requirement
+    tcid.append(sum(tcid[:10])% 10)
 
+    tc_number = "".join([str(num) for num in tcid])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return tc_number
 
 
 
@@ -91,8 +100,7 @@ if __name__ == "__main__":
     if ChooseAnOption == "1":
         function1()
     elif ChooseAnOption == "2":
-        pass
-        #function2()
+        function2()
     else:
         print("Please make a valid choice")
 
