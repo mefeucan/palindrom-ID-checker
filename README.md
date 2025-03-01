@@ -1,5 +1,3 @@
-# first-project
-TurkishID-Palindrome-Generator
 # Palindromic & Turkish ID Number Validator
 
 ## Description
